@@ -1,3 +1,5 @@
-let BinaryFile = require('./lib/node-binary');
+'use strict';
+
+let BinaryFile = require('./lib/binary-file');
 
 module.exports = BinaryFile;
