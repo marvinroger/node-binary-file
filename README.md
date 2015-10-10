@@ -33,7 +33,7 @@ new BinaryFile('./file.bin', 'r').then(function (instance) {
 });
 ```
 
-You don't have to create buffers to read into, you don't have to remember the position of the cursor: everything is handled by BinaryFile.
+You don't have to create a Buffer to write the data read from the file, you don't have to remember the position of the cursor: everything is handled by BinaryFile.
 
 ## API
 
