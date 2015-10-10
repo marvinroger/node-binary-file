@@ -5,7 +5,7 @@ binary-file
 
 Read and write binary types in files.
 This library allows you to use the functions you would use on a Buffer, like readUInt32, directly on files.
-It is promises-based and compatible with Node ^4.0.0 only.
+It is promises-based.
 
 ```
 npm install --save binary-file
