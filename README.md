@@ -1,6 +1,8 @@
 binary-file
 ===========
 
+[![NPM version](https://img.shields.io/npm/v/binary-file.svg)](https://www.npmjs.com/package/binary-file) ![Node version](https://img.shields.io/node/v/binary-file.svg)
+
 Read and write binary types in files.
 This library allows you to use the functions you would use on a Buffer, like readUInt32, directly on files.
 It is promises-based and compatible with Node ^4.0.0 only.
