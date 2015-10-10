@@ -3,11 +3,35 @@ binary-file
 
 Read and write binary types in files.
 This library allows you to use the functions you would use on a Buffer, like readUInt32, directly on files.
-It is promises-based.
+It is promises-based and compatible with Node ~4.0.0 only.
 
 ```
 npm install --save binary-file
 ```
+
+## Use case
+
+Say you want to parse a simple binary file for an an UInt32 containing the length of the string that follows. With binary-file, you can simply:
+
+```javascript
+'use strict';
+
+let BinaryFile = require('binary-file');
+
+let myBinaryFile;
+new BinaryFile('./file.bin', 'r').then(function (instance) {
+  myBinaryFile = instance;
+  return myBinaryFile.readUInt32();
+}).then(function (stringLength) {
+  return myBinaryFile.readString(stringLength);
+}).then(function (string) {
+  console.log(`File read: ${string}`);
+}).catch(function(err) {
+  console.log(`There was an error: ${err}`);
+});
+```
+
+You don't have to open buffers, you don't have to remember the position of the cursor: everything is handled by BinaryFile.
 
 ## API
 
