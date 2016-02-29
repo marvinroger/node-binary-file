@@ -31,7 +31,7 @@ myBinaryFile.open().then(function () {
   return myBinaryFile.close();
 }).then(function () {
   console.log('File closed');
-}).catch(function(err) {
+}).catch(function (err) {
   console.log(`There was an error: ${err}`);
 });
 ```
