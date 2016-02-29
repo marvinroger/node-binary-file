@@ -44,17 +44,19 @@ And it looks even better with ES7 async / await:
 const BinaryFile = require('binary-file');
 
 const myBinaryFile = new BinaryFile('./file.bin', 'r');
-try {
-  await myBinaryFile.open();
-  console.log('File opened');
-  const stringLength = await myBinaryFile.readUInt32();
-  const string = await myBinaryFile.readString(stringLength);
-  console.log(`File read: ${string}`);
-  await myBinaryFile.close();
-  console.log('File closed');
-} catch (err) {
-  console.log(`There was an error: ${err}`);
-}
+(async function () {
+  try {
+    await myBinaryFile.open();
+    console.log('File opened');
+    const stringLength = await myBinaryFile.readUInt32();
+    const string = await myBinaryFile.readString(stringLength);
+    console.log(`File read: ${string}`);
+    await myBinaryFile.close();
+    console.log('File closed');
+  } catch (err) {
+    console.log(`There was an error: ${err}`);
+  }
+})();
 ```
 
 You don't have to create a Buffer to write the data read from the file, you don't have to remember the position of the cursor: everything is handled by BinaryFile.
