@@ -18,16 +18,19 @@ Say you want to parse a simple binary file for an an UInt32 containing the lengt
 ```javascript
 'use strict';
 
-let BinaryFile = require('binary-file');
+const BinaryFile = require('binary-file');
 
-let myBinaryFile;
-new BinaryFile('./file.bin', 'r').then(function (instance) {
-  myBinaryFile = instance;
+let myBinaryFile = new BinaryFile('./file.bin', 'r');
+myBinaryFile.open().then(function () {
+  console.log('File opened');
   return myBinaryFile.readUInt32();
 }).then(function (stringLength) {
   return myBinaryFile.readString(stringLength);
 }).then(function (string) {
   console.log(`File read: ${string}`);
+  return myBinaryFile.close();
+}).then(function () {
+  console.log('File closed');
 }).catch(function(err) {
   console.log(`There was an error: ${err}`);
 });
@@ -47,9 +50,13 @@ Create a new instance of BinaryFile.
 * `mode`: the mode in which to open the file. See [fs.open](https://nodejs.org/api/fs.html#fs_fs_open_path_flags_mode_callback)
 * `littleEndian`: endianness of the file
 
+#### `.open()`
+
+Open the file.
+
 Return a promise.
 
-**fulfilled** with the class instance once the file is opened
+**fulfilled** when the file is opened
 
 #### `.size()`
 
@@ -79,7 +86,7 @@ Close the file.
 
 Return a promise.
 
-**fulfilled** with `true` once the file is closed
+**fulfilled** when the file is closed
 
 ### Read
 
@@ -92,7 +99,7 @@ Read a Buffer in the file.
 
 Return a promise.
 
-**fulfilled** with the Buffer once the reading is done
+**fulfilled** with the Buffer when the reading is done
 
 #### `.readInt8(position = null)`,
 #### `.readUInt8(position = null)`,
@@ -109,7 +116,7 @@ Read a binary type in the file.
 
 Return a promise.
 
-**fulfilled** with the value read once the reading is done
+**fulfilled** with the value read when the reading is done
 
 #### `.readString(length, position = null)`
 
@@ -120,7 +127,7 @@ Read a string in the file.
 
 Return a promise.
 
-**fulfilled** with the string read once the reading is done
+**fulfilled** with the string read when the reading is done
 
 ### Write
 
@@ -133,7 +140,7 @@ Read a Buffer in the file.
 
 Return a promise.
 
-**fulfilled** with the number of bytes written once the writing is done
+**fulfilled** with the number of bytes written when the writing is done
 
 #### `.writeInt8(value, position = null)`,
 #### `.writeUInt8(value, position = null)`,
@@ -151,7 +158,7 @@ Write a binary type in the file.
 
 Return a promise.
 
-**fulfilled** with the number of bytes written once the writing is done
+**fulfilled** with the number of bytes written when the writing is done
 
 #### `.writeString(string, position = null)`
 
@@ -162,4 +169,4 @@ Write a string in the file.
 
 Return a promise.
 
-**fulfilled** with the number of bytes written once the writing is done
+**fulfilled** with the number of bytes written when the writing is done
