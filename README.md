@@ -20,7 +20,7 @@ Say you want to parse a simple binary file for an an UInt32 containing the lengt
 
 const BinaryFile = require('binary-file');
 
-let myBinaryFile = new BinaryFile('./file.bin', 'r');
+const myBinaryFile = new BinaryFile('./file.bin', 'r');
 myBinaryFile.open().then(function () {
   console.log('File opened');
   return myBinaryFile.readUInt32();
