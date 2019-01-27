@@ -13,7 +13,7 @@ npm install --save binary-file
 
 ## Use case
 
-Say you want to parse a simple binary file for an an UInt32 containing the length of the string that follows. With binary-file, you can simply:
+Say you want to parse a simple binary file for an UInt32 containing the length of the string that follows. With binary-file, you can simply:
 
 ```javascript
 'use strict';
