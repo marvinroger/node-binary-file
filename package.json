@@ -26,7 +26,7 @@
     "test": "semistandard"
   },
   "engines": {
-    "node": "^4.0.0"
+    "node": ">= 4.0.0"
   },
   "dependencies": {
     "denodeify": "^1.2.1"
