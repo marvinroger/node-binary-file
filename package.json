@@ -1,6 +1,6 @@
 {
   "name": "binary-file",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Read and write binary types in files",
   "author": {
     "name": "Marvin Roger",
