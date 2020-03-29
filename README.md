@@ -130,6 +130,8 @@ Return a promise.
 #### `.readUInt16(position = null)`,
 #### `.readInt32(position = null)`,
 #### `.readUInt32(position = null)`,
+#### `.readInt64(position = null)`,
+#### `.readUInt64(position = null)`,
 #### `.readFloat(position = null)`,
 #### `.readDouble(position = null)`
 
@@ -171,6 +173,8 @@ Return a promise.
 #### `.writeUInt16(value, position = null)`,
 #### `.writeInt32(value, position = null)`,
 #### `.writeUInt32(value, position = null)`,
+#### `.writeInt64(value, position = null)`,
+#### `.writeUInt64(value, position = null)`,
 #### `.writeFloat(value, position = null)`,
 #### `.writeDouble(value, position = null)`
 
